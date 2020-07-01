@@ -112,7 +112,7 @@ typedef struct {
 
 #define bson_mutex_init(mutex)                                          \
    do {                                                                 \
-      InitializeCriticalSection (&(mutex)->wrapped_mutex, NULL);        \
+      InitializeCriticalSection (&(mutex)->wrapped_mutex);              \
       (mutex)->locked_by_curr_thread = false;                           \
    } while (0);
 
