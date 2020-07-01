@@ -990,7 +990,7 @@ tasks:
       script: |-
         set -o errexit
         set -o xtrace
-        export CFLAGS="-DBSON_MEMCHECK"
+        export CFLAGS="-DBSON_MEMCHECK -DMONGOC_ENABLE_TESTING"
         export DEBUG="ON"
         export SASL="OFF"
         export SSL="OPENSSL"
