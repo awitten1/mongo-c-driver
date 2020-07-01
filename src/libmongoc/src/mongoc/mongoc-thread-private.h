@@ -78,7 +78,7 @@ mongoc_cond_timedwait (mongoc_cond_t *cond,
                        int64_t timeout_msec)
 {
    int r;
-#ifndef MOMONGOC_ENABLE_TESTING
+#ifndef MONGOC_ENABLE_TESTING
    if (SleepConditionVariableCS (cond, mutex, (DWORD) timeout_msec)) {
       return 0;
    }
