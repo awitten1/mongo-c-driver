@@ -59,10 +59,10 @@ int COMMON_PREFIX (thread_join) (bson_thread_t thread)
 
 bool COMMON_PREFIX (mutex_is_locked) (bson_mutex_t *mutex)
 {
-#ifdef MONGOC_ENABLE_TESTING
-   return mutex->locked_by_curr_thread;
-#else
+#ifndef MONGOC_ENABLE_TESTING
    /* is noop in this case */
    return true;
+#else
+   return mutex->locked_by_curr_thread;
 #endif
 }

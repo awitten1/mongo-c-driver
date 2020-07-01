@@ -118,13 +118,13 @@ typedef struct {
 
 #define bson_mutex_lock(mutex)                                          \
    do {                                                                 \
-      pthread_mutex_lock (&(mutex)->wrapped_mutex);                     \
+      EnterCriticalSection (&(mutex)->wrapped_mutex);                     \
       (mutex)->locked_by_curr_thread = true;                            \
    } while (0);
 
 #define bson_mutex_unlock(mutex)                                        \
    do {                                                                 \
-      pthread_mutex_unlock (&(mutex)->wrapped_mutex);                   \
+      LeaveCriticalSection (&(mutex)->wrapped_mutex);                   \
       (mutex)->locked_by_curr_thread = false;                           \
    } while (0);
 #endif
