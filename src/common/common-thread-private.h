@@ -93,7 +93,7 @@ typedef struct {
 #define BSON_ONCE_INIT INIT_ONCE_STATIC_INIT
 #define BSON_ONCE_RETURN return true
 
-#ifndef MMONGOC_ENABLE_TESTING
+#ifndef MONGOC_ENABLE_TESTING
 #define bson_mutex_destroy DeleteCriticalSection
 #define bson_mutex_init InitializeCriticalSection
 #define bson_mutex_lock EnterCriticalSection
@@ -118,7 +118,7 @@ typedef struct {
 
 #define bson_mutex_lock(mutex)                                          \
    do {                                                                 \
-      EnterCriticalSection (&(mutex)->wrapped_mutex);                     \
+      EnterCriticalSection (&(mutex)->wrapped_mutex);                   \
       (mutex)->locked_by_curr_thread = true;                            \
    } while (0);
 
